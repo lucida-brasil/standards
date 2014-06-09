@@ -1,0 +1,85 @@
+<h2 class="content-subhead" id="enriquecendo-o-mapeamento-com-atributos-data-*">
+	Enriquecendo o mapeamento atributos <span class="code">data-*</span></h2>
+<p>
+	O HTML5 trouxe a <a href="http://www.w3.org/TR/2011/WD-html5-20110525/elements.html#embedding-custom-non-visible-data-with-the-data-attributes">especificação <em>custom data attributes</em></a> que permite adicionar mais informação aos elementos HTML, informaçãoes que não necessáriamente precisam ser repassadas para o usuário.
+</p>
+<h3>data-conversion</h3>
+<p>
+	Nos utilizamos os <span class="code">custom data attributes</span> para enriquecer a identificação das conversões que uma determinada ação pode causar, como um site pode ter vários tipos de conversão, como assinar um feed, acessar um chat, solicitar contato ou adiquirir um produto, nos utilizamos o atributo <span class="code">data-conversion</span> para disquinguir essa conversão.
+</p>
+<p>
+	Ainda seguindo o nosso exemplo de botão, vamos considerar que existem 3 possiveis conversões no site.
+</p>
+<ul>
+	<li>Cotação via Chat</li>
+	<li>Solicitar contato</li>
+	<li>Agendar contato</li>
+</ul>
+<p>Todos geram possíveis conversões a partir de um clique, mas como distingui-las?</p>
+<highlight-code class="html" width="100%" height="auto">
+&lt;a href="#" class="track-clik" data-conversion="contato via chat">
+	Acesso o chat
+&lt;/a>
+&lt;a href="#" class="track-clik" data-conversion="contato por telefone">
+	Nos ligamos para você
+&lt;/a>
+&lt;a href="#" class="track-clik" data-conversion="contato agendado">
+	Agendar contato
+&lt;/a>
+
+</highlight-code>
+<p>Dessa forma, mesmo se o tipo de conversão não puder ser lido no <span class="code">HTML</span> da página, por se tratar de uma imagem por exemplo, esse dado vai ser encontrado no atributo <span class="code">data-conversion</span>.</p>
+
+<h3>data-content</h3>
+<p>
+	Assim como podemos encontrar várias possíveis convesões em um site, também é possivel que uma mesma conversão seja acessível por ações em diferentes locais da página.
+</p>
+<p>
+	Podemos ter uma chamada a ação vinda de um banner ou destaque e outra no rodapé, após um conteúdo explicativo, nesse caso precisamos não apenas identificar qual é a conversão, mas também de onde ela partiu.
+</p>
+<p>
+	Para solucionar esse problema usamos o atributo <span class="code">data-content</span>, que deve ser inseriada nos elementos delimitadores de layout da página, <span class="code">header</span>, <span class="code">menu</span>, <span class="code">footer</span>, <span class="code">sidebar</span>, <span class="code">lightbox</span>, <span class="code">banner</span> e <span class="code">main</span>, 
+</p>
+<p>
+	Com esses atributos, sempre que o usuário interagir com um elemento HTML que deve ser mapeado, nossos scripts vão buscar o atributo <span class="code">data-conversion</span> desse elemento e o <span class="code">data-content</span> do seu antecessor ancestral mais proximo, mantendo nosso exemplo anterior, vamos supor que nosso botão pode ser encontrado em uma banner de destaque e no rodapé do site.
+</p>
+<highlight-code class="html" width="100%" height="auto">
+&lt;!-- banner principal -->
+&lt;div class="baseBannerTexto" data-content="banner">
+	&lt;a href="#" class="btCotacaoG track-click"
+	  data-conversion="contato via chat">
+		faça uma cotação
+	&lt;/a>
+&lt;/div>
+
+&lt;!-- ... -->
+
+&lt;!-- rodape -->
+&lt;div class="baseFooterInner" data-content="foooter">
+	&lt;ul class="menuBase">
+		&lt;li class="menuBaseliOn">
+			&lt;div class="menuBaselabel especialBold track-click"
+				data-conversion="contato via chat">
+				COTAÇÃO VIA&lt;br>CHAT
+			&lt;/div>
+		&lt;/li>
+		&lt;li class="menuBaseli">	
+			&lt;div class="menuBaselabel especialBold track-click"
+				data-conversion="contato por telefone">
+				LIGAMOS&lt;br>PARA VOCÊ
+			&lt;/div>
+		&lt;/li>
+		&lt;li class="menuBaseli">
+			&lt;div class="menuBaselabel especialBold track-click"
+				data-conversion="agendamento de contato">
+				AGENDAMENTO&lt;br>DE CONTATO
+			&lt;/div>
+		&lt;/li>
+	&lt;/ul>
+&lt;/div>
+
+</highlight-code>
+
+<p>
+	Dessa forma mesmo se tratando de elementos completamente diferentes, podemos identificar de onde partiu cada conversão, banner ou rodapé, que levou o usuário ao chat.
+</p>
