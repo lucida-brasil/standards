@@ -1,4 +1,15 @@
 
+a{
+	color: #777;
+	text-decoration: none;
+	&:visited{
+		color: #777;
+	}
+	&:hover{
+		text-decoration: underline;
+	}
+}
+
 .logo{
 	padding: 1.2em 0 1.2em 0.6em !important;
 	background-color: #f0f0f0;
@@ -16,14 +27,19 @@
 	margin: .83em 0;
 }
 
-.code{
-	font-family: monospace, serif;
-}
+.code{font-family: monospace, serif;}
 
-.nav-link{
-	color: blue;
-}
+.nav-link:hover{text-decoration: none;}
 
+
+.anchor{
+	width: 1em;
+	height: 1em;
+	display: inline-block;
+	background: url('../images/links.png') no-repeat;
+	background-size: 100%;
+	text-decoration: none;
+}
 
 @media print {
 	#main { width: 100%; }
