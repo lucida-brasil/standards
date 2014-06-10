@@ -1,0 +1,24 @@
+<h2 id="clientid" class="content-subhead">
+	<a href="" class="anchor"></a>
+	Identificando conversões de sucesso
+</h2>
+
+<p>
+	Para identificarmos no Google Analytics as conversão de sucesso da Hypnobox precisamos ter acesso ao id do cliente ou id da conversão gerado pela ferramento, essa informação pode ser passada para o GA pelo <span class="code">dataLayer</span> do Google Tag Manager utilizando um evento.
+</p>
+
+<highlight-code class="javascript" width="100%" height="auto">
+dataLayer.push({
+	'event' : 'hypnobox.sucesso',
+	'id' : '00000000'
+});
+
+</highlight-code>
+
+<p>
+	Esse pequeno bloco de código sinaliza o GTM que houve uma conversão, quando isso ocorre nossos scripts podem ler o atributo <span class="code">id</span> que deve conter o id gerado pela ferramenta e efetuar o disparo para o GA, a vantagem desse método é que futuras tags também podem ser associadas a conversão.
+</p>
+
+<p>
+	O mesmo método pode ser utilizado para outras conversões que gerem id's no back-end, sempre que o usuário receber o feed-back de sucesso disparamos um evento para o GTM informando a ferramenta ou processo que gerou a conversão e qual o id da conversão.
+</p>

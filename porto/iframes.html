@@ -43,6 +43,9 @@
 			<li><a class="nav-link" href="iframes.html">
 				iFrames
 			</a></li>
+			<li><a class="nav-link" href="conversao.html">
+				Conversões
+			</a></li>
 		</ul>
 	</div>
 </nav>
@@ -107,7 +110,7 @@ lucida.addiFrame('myIframe', 'http://lucida.com.br');
 </h2>
 
 <p>
-	O GA insere o parâmetro <span class="code">_ga</span> na url para passar o id do usuário para o novo domínio. Esse parâmetro deve ser copiado para o destino do redirecionamento <span class="code">server-side</span> caso exista, independente da origem esse parâmetro sempre deve ser inserido na url de destino.
+	O GA insere o parâmetro <span class="code">_ga</span> na url com valor dinâmico para passar o id do usuário para o novo domínio. Esse parâmetro deve ser copiado para o destino do redirecionamento <span class="code">server-side</span> caso exista, independente da origem esse parâmetro sempre deve ser inserido na url de destino.
 </p>
 
 <p>
@@ -119,7 +122,7 @@ index.php?id_produto=1&_ga=1.174460642.1962266889.1396024688
 </highlight-code>
 
 <p>
-	E o redirecionamento <span class="code">server-side</span> deve resultar em:
+	E o redirecionamento <span class="code">server-side</span> deve ser feito retornando status 302 para o navegador e mantendo o parâmetro <span class="code">_ga</span> com seu respectivo valor, resultando em:
 </p>
 <highlight-code width="100%" height="auto">
 entrar.php?_ga=1.174460642.1962266889.1396024688

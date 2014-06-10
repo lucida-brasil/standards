@@ -21,7 +21,7 @@
 	<li>Agendar contato</li>
 </ul>
 <p>Todos geram possíveis conversões a partir de um clique, mas como distingui-las?</p>
-<highlight-code class="html" width="100%" height="auto">
+<highlight-code class="xml" width="100%" height="auto">
 &lt;a href="#" class="track-click" data-conversion="chat">
 	Acesso o chat
 &lt;/a>
@@ -54,7 +54,7 @@
 <p>
 	Com esses atributos, sempre que o usuário interagir com um elemento HTML que deve ser mapeado, nossos scripts vão buscar o atributo <span class="code">data-conversion</span> desse elemento e o <span class="code">data-content</span> do seu antecessor ancestral mais próximo, mantendo nosso exemplo anterior, vamos supor que nosso botão pode ser encontrado em um banner de destaque e no rodapé do site.
 </p>
-<highlight-code class="html" width="100%" height="auto">
+<highlight-code class="xml" width="100%" height="auto">
 &lt;!-- banner principal -->
 &lt;div class="baseBannerTexto" data-content="banner">
 	&lt;a href="#" class="btCotacaoG track-click"
