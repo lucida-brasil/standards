@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Lúcida - Coding Standards</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+	<link rel="stylesheet" href="styles/highlight.css">
+
+<!--[if lte IE 8]>
+	<link rel="stylesheet" href="/styles/side-menu-old-ie.css">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+	<link rel="stylesheet" href="styles/side-menu.css">
+<!--<![endif]-->
+	<link rel="stylesheet" href="styles/global.css">
+
+	<script src="scripts/jquery.js"></script>
+	<script src="scripts/polymer.js"></script>
+
+	<link rel="import" href="imports/highlight.html">
+</head>
+<body class="layout">
+	<!-- Menu toggle -->
+<a href="#menu" class="menuLink menu-link">
+	<!-- Hamburger icon -->
+	<span></span>
+</a>
+
+<nav class="menu" id="menu">
+	<div class="pure-menu pure-menu-open">
+		<a class="logo" href="http://lucida.com.br" title="Lúcida - Métricas que fazem sentido">Lúcida</a>
+		<ul>
+			<li><a class="nav-link" href="index.html">
+				Objetivo
+			</a></li>
+			<li><a class="nav-link" href="classes.html">
+				Classes HTML
+			</a></li> 
+			<li><a class="nav-link" href="custom-data-attributes.html">
+				Atributos data-*
+			</a></li> 
+			<li><a class="nav-link" href="iframes.html">
+				iFrames
+			</a></li>
+			<li><a class="nav-link" href="datalayer.html">
+				Utilizando o Datalayer
+			</a></li>
+		</ul>
+	</div>
+</nav>
+	<section class="main">
+		<div class="header">
+			<h1>Coding Standards</h1>
+			<p class="header-description">Automatização de tagueamento</p>
+		</div>
+
+		<div class="content">
+			<h2 id="utilizando-datalayer" class="content-subhead">
+	<a href="#utilizando-datalayer" class="anchor"></a>
+	Utilizando o Datalayer
+</h2>
+
+<p>
+	O Google Tag Manager pode receber valores externos através do <span class="code">dataLayer</span>, ou camada de dados, esses valores podem ser resgatados pelo tagueamento e utilizamos nos disparos do Google Analytics ou qualquer outra ferramenta.
+</p>
+
+<p>
+	Outra funcionalidade do dataLayer é informar ao GTM que algo aconteceu, isso é feito através dos eventos inseridos na camada de dados, essa funcionalidade permite disparar novas tags quando, por exemplo, uma página <span class="code">AJAX</span> é carregada, um lightbox for aberto, que não obrigatoriamente é feito por uma interação do usuário, a princípio nós vamos usar essa funcionalidade para <strong>identificar a geração de lead's</strong> feitas pela <strong>Hypnobox</strong>.
+</p>
+
+<p>
+	Sempre que um usuário gera um lead pela Hypnobox ele recebe um número de protocolo, para identificarmos esse lead no GA vamos usar um evento do GTM que recebe esse número, isso é feito com a chamada de uma função <span class="code">JavaScript</span>.
+</p>
+
+<highlight-code class="javascript" width="100%" height="auto">
+dataLayer.push({
+	'event' : 'hypnobox.protocolo',
+	'id' : '00000000'
+});
+
+</highlight-code>
+
+<p>
+	Esse pequeno bloco de código sinaliza o GTM que um lead foi gerado, quando isso ocorre nossos scripts podem ler o atributo <span class="code">id</span> que deve conter o id gerado pela ferramenta e efetuar o disparo para o GA, a vantagem desse método é que futuras tags também podem ser associadas a esse evento.
+</p>
+
+<p>
+	O mesmo método pode ser utilizado para outras conversões que gerem id's no back-end ou não, sempre que o usuário receber o feed-back de sucesso disparamos um evento para o GTM informando a ferramenta ou processo que gerou uma novo lead ou conversão e qual o id da conversão se houver.
+</p>
+		</div>
+	</section>
+	<script src="scripts/ui.js"></script>
+</body>
+</html>
