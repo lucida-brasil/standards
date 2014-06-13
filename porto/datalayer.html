@@ -66,11 +66,17 @@
 </p>
 
 <p>
-	Outra funcionalidade do dataLayer é informar ao GTM que algo aconteceu, isso é feito através dos eventos inseridos na camada de dados, essa funcionalidade permite disparar novas tags quando, por exemplo, uma página <span class="code">AJAX</span> é carregada, um lightbox for aberto, que não obrigatoriamente é feito por uma interação do usuário, a princípio nós vamos usar essa funcionalidade para <strong>identificar a geração de lead's</strong> feitas pela <strong>Hypnobox</strong>.
+	Outra funcionalidade do dataLayer é informar ao GTM que algo aconteceu, isso é feito através dos eventos inseridos na camada de dados, essa funcionalidade permite disparar novas tags quando, por exemplo, uma página <span class="code">AJAX</span> é carregada ou um lightbox for aberto, ações que não obrigatoriamente são feitas por uma interação do usuário.
 </p>
-
+<h3 id="datalayer-para-hypnobox">
+	<a href="#datalayer-para-hypnobox" class="anchor"></a>
+	Datalayer para Hypnobox
+</h3>
 <p>
-	Sempre que um usuário gera um lead pela Hypnobox ele recebe um número de protocolo, para identificarmos esse lead no GA vamos usar um evento do GTM que recebe esse número, isso é feito com a chamada de uma função <span class="code">JavaScript</span>.
+	A princípio nós vamos usar a os eventos para <strong>identificar a geração de lead's</strong> feitas pela <strong>Hypnobox</strong>.
+</p>
+<p>
+	Sempre que um usuário gera um lead pela Hypnobox ele recebe um número de protocolo, para identificarmos esse lead no GA vamos usar um evento do GTM que recebe o protocolo, isso é feito com a chamada de uma função <span class="code">JavaScript</span>.
 </p>
 
 <highlight-code class="javascript" width="100%" height="auto">
@@ -87,6 +93,33 @@ dataLayer.push({
 
 <p>
 	O mesmo método pode ser utilizado para outras conversões que gerem id's no back-end ou não, sempre que o usuário receber o feed-back de sucesso disparamos um evento para o GTM informando a ferramenta ou processo que gerou uma novo lead ou conversão e qual o id da conversão se houver.
+</p>
+
+<p>
+	Também podemos usar a mesma estrutura para sinalizar erros de preenchimento de formulário, como o formulário de atendimento online, onde os erros de preenchimento são sinalizados por meio de <span class="code">alert</span> scripts externos não conseguem ler o seu valor, para sanar essa dificuldade podemos usar um evento.
+</p>
+
+<highlight-code class="javascript" width="100%" height="auto">
+dataLayer.push({
+	'event' : 'hypnobox.entrar.erro',
+	'msg' : 'Digite seu nome'
+});
+
+</highlight-code>
+
+<p>
+	O mesmo pode ser feito para o sucesso ao enviar o dados por este formulário.
+</p>
+
+<highlight-code class="javascript" width="100%" height="auto">
+dataLayer.push({
+	'event' : 'hypnobox.entrar.sucesso'
+});
+
+</highlight-code>
+
+<p>
+	Nesse exemplo não precisamos de informações adicionais no evento, apenas saber que o formulário foi enviado com sucesso.
 </p>
 		</div>
 	</section>
