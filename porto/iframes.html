@@ -141,20 +141,33 @@ lucida.addiFrame('myIframe', 'http://lucida.com.br');
 </highlight-code>
 
 <p>
-	Agora carregue o iframe, já com o parâmetro para copia de cookies com a função abaixo:
+	Agora carregue o <span class="code">iframe</span> dinamicamente com a função <span class="code">lucida.addiFrame</span>, esta chamada deve ser feita logo abaixo do GTM, como no exemplo abaixo:
 </p>
 
+<div class="code-block">
+<highlight-code class="html" width="100%" height="auto">
+&lt;noscript&gt;&lt;iframe src="//www.googletagmanager.com/ns.html?id=GTM-5CBHFV"
+height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;&lt;/noscript&gt;
+&lt;script&gt;
+</highlight-code>
 <highlight-code class="javascript" width="100%" height="auto">
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5CBHFV');
+</highlight-code><highlight-code class="html" width="100%" height="auto">
+&lt;/script&gt;
+&lt;script&gt;
+</highlight-code><highlight-code class="javascript" width="100%" height="auto">
 lucida.addiFrame(
 	'hypnobox',
 	'https://portoseguro.hypnobox.com.br/atendimento/index.php?id_produto=1'
 );
+</highlight-code><highlight-code class="html" width="100%" height="auto">
+&lt;/script&gt;</highlight-code>
+</div>
 
-</highlight-code>
-
-<p>
-	Essa função deve ser executada preferencialmente <strong>depois da tag do GTM</strong> ou no <span class="code">domReady</span> da página.
-</p>
 
 <h2 id="parametros-server-side" class="content-subhead">
 	<a href="#parametros-server-side" class="anchor"></a>

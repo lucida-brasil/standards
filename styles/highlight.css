@@ -51,4 +51,8 @@ pre .xml .css,
 pre .xml .cdata {
   opacity: 0.5;
 }
+
+.tag .javascript {
+  color:#fff !important;
+}
     
