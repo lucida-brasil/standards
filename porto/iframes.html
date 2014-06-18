@@ -104,6 +104,58 @@ lucida.addiFrame('myIframe', 'http://lucida.com.br');
 	Chame esta função depois do script do GTM ou no dom ready da página, dessa forma a biblioteca já estará disponível.
 </p>
 
+<h3 id="exemplo">
+	<a href="#exemplo" class="anchor"></a>
+	Exemplo de implementação
+</h3>
+
+<p>
+	Baseado nos <span class="code">iframes</span> de hypnobox que existem hoje nas lp's temos o seguinte cenário:
+</p>
+
+<highlight-code class="html" width="100%" height="auto">
+&lt;body&gt;
+	&lt;!--  ... --&gt;
+	&lt;div class="contentModal"&gt;
+		&lt;iframe
+			src="https://portoseguro.hypnobox.com.br/atendimento/index.php?id_produto=1"
+			frameborder="0" scrolling="no"&gt;
+		&lt;/iframe&gt;
+	&lt;/div&gt;
+	&lt;!--  ... --&gt;
+&lt;/body&gt;
+
+</highlight-code>
+
+<p>
+	O primeiro passo é remover o <span class="code">iframe</span> do código fonte, e adicionar um <span class="code">id</span> no <span class="code">div</span> que vai receber este iframe dinâmicamente.
+</p>
+
+<highlight-code class="html" width="100%" height="auto">
+&lt;body&gt;
+	&lt;!--  ... --&gt;
+	&lt;div id="hypnobox" class="contentModal"&gt;&lt;/div&gt;
+	&lt;!--  ... --&gt;
+&lt;/body&gt;
+
+</highlight-code>
+
+<p>
+	Agora carregue o iframe, já com o parâmetro para copia de cookies com a função abaixo:
+</p>
+
+<highlight-code class="javascript" width="100%" height="auto">
+lucida.addiFrame(
+	'hypnobox',
+	'https://portoseguro.hypnobox.com.br/atendimento/index.php?id_produto=1'
+);
+
+</highlight-code>
+
+<p>
+	Essa função deve ser executada preferencialmente <strong>depois da tag do GTM</strong> ou no <span class="code">domReady</span> da página.
+</p>
+
 <h2 id="parametros-server-side" class="content-subhead">
 	<a href="#parametros-server-side" class="anchor"></a>
 	Copia de parâmetros via server-side
