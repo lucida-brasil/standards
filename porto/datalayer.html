@@ -95,6 +95,11 @@ dataLayer.push({
 	O mesmo método pode ser utilizado para outras conversões que gerem id's no back-end ou não, sempre que o usuário receber o feed-back de sucesso disparamos um evento para o GTM informando a ferramenta ou processo que gerou uma novo lead ou conversão e qual o id da conversão se houver.
 </p>
 
+<h3 id="datalayer-para-formularios">
+	<a href="#datalayer-para-formularios" class="anchor"></a>
+	Datalayer para formulários
+</h3>
+
 <p>
 	Também podemos usar a mesma estrutura para sinalizar erros de preenchimento de formulário, como o formulário de atendimento online, onde os erros de preenchimento são sinalizados por meio de <span class="code">alert</span> scripts externos não conseguem ler o seu valor, para sanar essa dificuldade podemos usar um evento.
 </p>
@@ -122,6 +127,36 @@ dataLayer.push({
 	Nesse exemplo não precisamos de informações adicionais no evento, apenas saber que o formulário foi enviado com sucesso.
 </p>
 
+<p>
+	A mesma implementação deve ser feita para os demais formulários das landing pages, apenas substituindo o nome do evento de acordo com a tabela abaixo:
+</p>
+
+<table class="pure-table pure-table-bordered" width="100%">
+	<thead>
+		<tr>
+			<th>Formulário</th>
+			<th>Nome do Evento</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Ligamos para você</td>
+			<td><span class="code">form.ligue-me</span></td>
+		</tr>
+		<tr>
+			<td>Agendamento de contato</td>
+			<td><span class="code">form.agendamento</span></td>
+		</tr>
+		<tr>
+			<td>Atendimento via whatsapp</td>
+			<td><span class="code">form.whatsapp</span></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>
+	Com essa implementação podemos medir sucesso e erro em qualquer formulário independente da landing page.
+</p>
 
 		</div>
 	</section>
