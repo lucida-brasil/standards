@@ -1,1 +1,47 @@
-<%- partial("_partials/classificando-os-elementos") %>
+<h2 class="content-subhead" id="classificando-os-elementos-html">
+	<a href="#classificando-os-elementos-html" class="anchor"></a>
+	Classificando os elementos HTML
+</h2>
+<p>
+	Para conteúdo dinâmico e ambientes onde páginas novas são criadas constantemente, como campanhas, hot sites e landing pages, recomendamos a utilização de classes que identifiquem a importância dos elementos HTML.
+</p>
+<p>
+	Essas classes vão informar aos nossos scripts que um novo conteúdo foi criado e que um elemento precisa ser medido, assim como qual é o tipo de interação que o usuário pode ter com este elemento, por exemplo a ação de click em um botão pode ser identificada pela classe <span class="code">track-click</span>.
+</p>
+<highlight-code class="xml" width="100%" height="auto">
+&lt;a href="#" class="btCotacaoG track-click">faça uma cotação&lt;/a>
+
+</highlight-code>
+<p>
+	Para o conteúdo criado dinamicamente, seja por <span class="code">AJAX</span> ou injetando <span class="code">HTML</span> através de <span class="code">JavaScript</span>, recomendamos que esses novos elementos sigam o mesmo padrão, <span class="code">track-</span> mais o tipo de interação, <span class="code">click</span> para links e botões, <span class="code">change</span> para <span class="code">input</span> e <span class="code">textarea</span> e <span class="code">submit</span> para formulários.
+</p>
+<p>
+	Por exemplo se um <span class="code">lightbox</span> for inserido na página com um formulário e um botão fechar, podemos usar a estrutura abaixo.
+</p>
+<highlight-code class="xml" width="100%" height="auto">
+&lt;div class="lighbox">
+	&lt;button id="fechar" class="track-click">fechar&lt;/button>
+	&lt;form action="contato.php" name="contato" class="track-submit">
+		&lt;label>
+			Nome:
+			&lt;input type="text" name="nome">
+		&lt;/label>
+		&lt;label>
+			e-mail:
+			&lt;input type="email" name="email">
+		&lt;/label>
+		&lt;label>
+			Mensagem:
+			&lt;textarea name="mensagem">&lt;/textarea>
+		&lt;/label>
+		&lt;input type="submit" value="enviar">
+	&lt;/form>
+&lt;/div>
+
+</highlight-code>
+<p>
+	Repare que não estamos usando as classes <span class="code">track-change</span> e <span class="code">track-click</span> para os elementos filhos do formulário por que este já foi identificado pela classe <span class="code">track-submit</span>.
+</p>
+<p>
+	Outra vantagem da identificação por classes padronizadas é não restringir o tipo de elemento <span class="code">HTML</span>, um botão pode ser feito por uma tag <span class="code">button</span>, <span class="code">a</span>, <span class="code">span</span> ou <span class="code">img</span> e mesmo assim será identificado corretamente.
+</p>
