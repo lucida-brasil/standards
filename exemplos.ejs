@@ -1,0 +1,120 @@
+<h2 class="content-subhead" id="classificando-os-elementos-html">
+	<a href="#classificando-os-elementos-html" class="anchor"></a>
+	track-submit, data-conversion, data-content
+</h2>
+<p>
+
+</p>
+<p>
+	Form abaixo mostra como incluir as classes e propriedades citadas acima </b>.
+</p>
+
+<form name="form" id="form" class="track-submit " data-content="form" data-conversion="nome"  action="" method="POST" onsubmit="return submitForm(); return false;">
+				<div class="Content">
+	
+						<div class="labelLeft">
+							<b> nome: </b>
+						</div>
+
+						<div class="fieldRight"><input type="text" name="nome" id="nome" class="inputText" value="" title="Nome"/>
+						</div>
+						<div class="labelLeft">
+							<b>e-mail:</b>
+						</div>
+
+						<div class="fieldRight"><input type="text" name="email" id="email" class="inputText" value="" title="Email"/></div>
+				</div>
+	</form>
+
+<highlight-code class="xml" width="100%" height="auto">
+&lt;form name="form" id="form" 
+	class="track-submit" data-content="form" 
+	data-conversion="nome" action="" 
+	method="POST" 
+	onsubmit="return submitForm(); return false;">
+
+				&lt;div class="Content">
+					
+						&lt;div class="labelLeft">
+							nome:
+						&lt;/div>
+						&lt;div class="fieldRight">
+							&lt;input type="text" name="nome" 
+							id="nome" class="inputText" value=" "title="Nome"/>
+						&lt;/div>
+
+						&lt;div class="labelLeft">
+							e-mail:
+						&lt;/div>
+						&lt;div class="fieldRight">
+						&lt;input type="text" name="email" 
+						id="email" class="inputText" value="" title="Email" />
+						&lt;/div>
+					
+					&lt;div class="hspace1">&nbsp;&lt;/div>
+				&lt;/div>
+				
+&lt;/form>
+</highlight-code>
+	
+<p>
+	<h2 class="content-subhead" id="track-change"> 
+	<a href="#track-change" class="anchor"></a>
+		track-change
+
+	</h2>	
+</p>
+<p>
+	No botão abaixo, a classe "track-change" foi inserida para quando tiver um input fora de um form.
+</p>
+
+<div class="search" data-content="search" >
+		<label>
+				Search:
+		</label>	
+			
+		<input type="text" name="search" class="input-search track-change" data-conversion="input-search">
+		
+</div>
+
+
+<highlight-code class="xml" width="100%" height="auto">
+&lt;div class="search" data-content="search" >
+		
+		&lt;label>
+				Search:
+		&lt;/label>
+
+		&lt;input type="text" name="search" class="input-search track-change" 
+		data-conversion="input-search">	
+&lt;/div>
+
+</highlight-code>
+
+
+<p>
+	<h2 class="content-subhead" id="track-click"> 
+	<a href="#track-click" class="anchor"></a>
+		track-click
+
+	</h2>	
+</p>
+<p>
+	No botão abaixo, a classe "track-click" .
+</p>
+
+<div class="botao" data-content="botao" >
+			
+		<input type="submit" name="botao" class="input-botao track-click" data-conversion="input-botao" value="botao">
+		
+</div>
+
+
+<highlight-code class="xml" width="100%" height="auto">
+&lt;div class="botao" data-content="botao" >
+
+		&lt;input type="text" name="botao" class="input-botao track-click" 
+		data-conversion="input-botao" value="botao">	
+&lt;/div>
+
+</highlight-code>
