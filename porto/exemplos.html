@@ -63,119 +63,95 @@
 	<a href="#classificando-os-elementos-html" class="anchor"></a>
 	track-submit, data-conversion, data-content
 </h2>
+
 <p>
-
+	Exemplo de implementação de formulário com classes e atributos personalizados </b>.
 </p>
-<p>
-	Form abaixo mostra como incluir as classes e propriedades citadas acima </b>.
-</p>
-
-<form name="form" id="form" class="track-submit " data-content="form" data-conversion="nome"  action="" method="POST" onsubmit="return submitForm(); return false;">
-				<div class="Content">
-	
-						<div class="labelLeft">
-							<b> nome: </b>
-						</div>
-
-						<div class="fieldRight"><input type="text" name="nome" id="nome" class="inputText" value="" title="Nome"/>
-						</div>
-						<div class="labelLeft">
-							<b>e-mail:</b>
-						</div>
-
-						<div class="fieldRight"><input type="text" name="email" id="email" class="inputText" value="" title="Email"/></div>
-				</div>
-	</form>
-
-<highlight-code class="xml" width="100%" height="auto">
-&lt;form name="form" id="form" 
-	class="track-submit" data-content="form" 
-	data-conversion="nome" action="" 
-	method="POST" 
-	onsubmit="return submitForm(); return false;">
-
-				&lt;div class="Content">
-					
-						&lt;div class="labelLeft">
-							nome:
-						&lt;/div>
-						&lt;div class="fieldRight">
-							&lt;input type="text" name="nome" 
-							id="nome" class="inputText" value=" "title="Nome"/>
-						&lt;/div>
-
-						&lt;div class="labelLeft">
-							e-mail:
-						&lt;/div>
-						&lt;div class="fieldRight">
-						&lt;input type="text" name="email" 
-						id="email" class="inputText" value="" title="Email" />
-						&lt;/div>
-					
-					&lt;div class="hspace1">&nbsp;&lt;/div>
-				&lt;/div>
-				
-&lt;/form>
-</highlight-code>
-	
-<p>
-	<h2 class="content-subhead" id="track-change"> 
-	<a href="#track-change" class="anchor"></a>
-		track-change
-
-	</h2>	
-</p>
-<p>
-	No botão abaixo, a classe "track-change" foi inserida para quando tiver um input fora de um form.
-</p>
-
-<div class="search" data-content="search" >
-		<label>
-				Search:
-		</label>	
-			
-		<input type="text" name="search" class="input-search track-change" data-conversion="input-search">
+<div class="contentModalBlack" data-content="modal">
+<form 
+	id="form"
+	name="form"
+	class="track-submit pure-form pure-form-stacked"
+	data-conversion="agendamento" 
+	action=""
+	method="POST">
+	<fieldset>
+		<legend>Agendamento</legend>
 		
+		<label for="nome">Nome</label>
+		<input id="nome" type="text" placeholder="Nome">
+
+		<label for="email">Email</label>
+		<input id="email" type="email" placeholder="Email">
+
+		<label for="horario">Horário</label>
+		<select id="horario">
+			<option value="manha">Período da Manhã</option>
+			<option value="tarde">Período da Tarde</option>
+		</select>
+
+		<button type="submit" class="pure-button pure-button-primary">Enviar</button>
+	</fieldset>
+</form>
 </div>
-
-
 <highlight-code class="xml" width="100%" height="auto">
-&lt;div class="search" data-content="search" >
+&lt;form 
+	id="form"
+	name="form"
+	class="track-submit pure-form pure-form-stacked"
+	data-conversion="agendamento" 
+	action=""
+	method="POST">
+	&lt;fieldset>
+		&lt;legend>Agendamento&lt;/legend>
 		
-		&lt;label>
-				Search:
-		&lt;/label>
+		&lt;label for="nome">Nome&lt;/label>
+		&lt;input id="nome" type="text" placeholder="Nome">
 
-		&lt;input type="text" name="search" class="input-search track-change" 
-		data-conversion="input-search">	
+		&lt;label for="email">Email&lt;/label>
+		&lt;input id="email" type="email" placeholder="Email">
+
+		&lt;label for="horario">Horário&lt;/label>
+		&lt;select id="horario">
+			&lt;option value="manha">Período da Manhã&lt;/option>
+			&lt;option value="tarde">Período da Tarde&lt;/option>
+		&lt;/select>
+
+		&lt;button type="submit" class="pure-button pure-button-primary">Enviar&lt;/button>
+	&lt;/fieldset>
+&lt;/form>
 &lt;/div>
 
 </highlight-code>
+	
 
 
-<p>
-	<h2 class="content-subhead" id="track-click"> 
+
+<h2 class="content-subhead" id="track-click"> 
 	<a href="#track-click" class="anchor"></a>
-		track-click
+	track-click
+</h2>	
 
-	</h2>	
-</p>
 <p>
-	No botão abaixo, a classe "track-click" .
+	Exemplo de implementação de botão ou link.
 </p>
 
-<div class="botao" data-content="botao" >
+<div class="banner" data-content="banner" >
 			
-		<input type="submit" name="botao" class="input-botao track-click" data-conversion="input-botao" value="botao">
+		<button class="track-click pure-button pure-button-primary">
+			Fazer cotação
+		</button>
 		
 </div>
 
 
-<highlight-code class="xml" width="100%" height="auto">
-&lt;div class="botao" data-content="botao" >
+<highlight-code width="100%" height="auto">
+&lt;div class="banner" data-content="banner" >
+			
+		&lt;button class="track-click pure-button pure-button-primary">
+			Fazer cotação
+		&lt;/button>
 
-		&lt;input type="text" name="botao" class="input-botao track-click" 
-		data-conversion="input-botao" value="botao">	
 &lt;/div>
 
 </highlight-code>
