@@ -36,15 +36,13 @@ O objeto está declarado dentro de uma função anônima no callback do evento `
 </script>
 ``` 
 
-Essa declaração não permite que a camada de dados seja lida por outros scripts, como o GTM, a implementação correta é:
-
 ### Especificação do template
 
-Em nenhumas das páginas testadas em homologação possui o atributo `customData.page.template`, essa informação é de extrema importancia para identicicarmos com segunrança, sem dependencia da URL, em qual etapa do funil o usuário se encontra.
+Em nenhumas das páginas testadas em homologação possui o atributo `customData.page.template`, essa informação é de extrema importância para identificarmos com segurança, sem dependência da URL, em qual etapa do funil o usuário se encontra.
 
 ## Exemplo de implementação
 
-Esse scrpipt deve ser incluído antes do GTM, de preferência entre as tags `<head>` e `</head>`:
+Esse script deve ser incluído antes do GTM, de preferência entre as tags `<head>` e `</head>`:
 
 ```html
 <script type="text/javascript">
