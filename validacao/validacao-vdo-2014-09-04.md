@@ -1,10 +1,11 @@
-#Validação VDO - Equipamentos portáteis
-
 ---
 data: 04-09-2014
 ambiente: homologação
 objetivo: implementação da camada de dados
 ---
+
+#Validação VDO - Equipamentos portáteis
+
 
 #Definição do objeto global
 
@@ -61,7 +62,4 @@ Esse scrpipt deve ser incluído antes do GTM, de preferência entre as tags `<he
 		};
 </script>
 ```
-
----
-download do documento: [VDO - Especificação camada de dados.pdf](VDO-Especificacao_camada_de_dados.pdf)
----
+download do documento: [VDO - Especificação camada de dados.pdf](VDO-Especificacao_camada_de_dados.pdf?raw=true)
